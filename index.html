@@ -1,188 +1,400 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Owen</title>
-<style>
-  /* Reset & base */
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, "Noto Kufi Arabic", "Cairo", "Amiri", "Arabic Typesetting", serif;
-    line-height: 1.6;
-    background: white; /* Black */
-    color: #dddddd;
-    direction: rtl;
-  }
-
-  /* Header */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #222222; /* Dark Gray */
-    border-bottom: 3px solid #1DCD9F; /* Vibrant turquoise */
-    border-radius: 0 0 15px 15px;
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(29, 205, 159, 0.6);
-    transition: transform 0.3s ease;
-    z-index: 1000;
-  }
-  header.hide {
-    transform: translateY(-100%);
-  }
-  header h1 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 1.7rem;
-    color: #1DCD9F; /* Vibrant turquoise */
-    user-select: none;
-    letter-spacing: 2px;
-  }
-  nav a {
-    color: #1DCD9F;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    transition: color 0.2s ease;
-  }
-  nav a:hover {
-    color: #169976; /* Teal green */
-  }
-
-  /* Main content */
-  main {
-    padding: 100px 30px 50px; /* top padding to avoid header overlap */
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  /* Floating card style for sections */
-  section.card {
-    background: #222222; /* Dark gray */
-    border-radius: 15px;
-    padding: 30px 25px;
-    margin-bottom: 40px;
-    box-shadow: 0 15px 30px rgba(199, 199, 199, 0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  section.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(98, 98, 98, 0.6);
-  }
-
-  main h2 {
-    font-weight: 700;
-    font-size: 2.2rem;
-    margin-bottom: 0.5em;
-    color: #1DCD9F;
-  }
-  main p {
-    font-size: 1.15rem;
-    color: #cccccc;
-    max-width: 700px;
-  }
-  main a {
-    color: #169976;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  main a:hover {
-    color: #1DCD9F;
-    text-decoration: underline;
-  }
-
-  /* Footer */
-  footer {
-    background: #222222;
-    color: #1DCD9F;
-    text-align: center;
-    padding: 25px 20px;
-    border-radius: 15px 15px 0 0;
-    font-size: 0.95rem;
-    user-select: none;
-  }
-    
-    
-    
-    .wwwwwww{
-        font-size: 30px;
-    
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --text-color: white;
+      --header-bg: #000;
+      --section-bg: #0f0f0f;
+      --card-bg: #1a1a1a;
+      --nav-color: #aaa;
+      --nav-hover: #fff;
+      --footer-color: #777;
     }
-    
-    
-    
-</style>
+
+    body.light-mode {
+      --bg-color: #f5f5f5;
+      --text-color: #111;
+      --header-bg: #fff;
+      --section-bg: #eee;
+      --card-bg: #ddd;
+      --nav-color: #333;
+      --nav-hover: #000;
+      --footer-color: #444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header.hide-header {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    header {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 1;
+      background-color: var(--header-bg);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--nav-color);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--nav-hover);
+    }
+
+    .theme-toggle {
+      margin-left: 2rem;
+      padding: 0.3rem 0.7rem;
+      background-color: transparent;
+      color: var(--text-color);
+      border: 1px solid var(--text-color);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: var(--header-bg);
+      position: absolute;
+      top: 70px;
+      right: 2rem;
+      border: 1px solid #333;
+      border-radius: 5px;
+      padding: 1rem;
+      z-index: 1001;
+    }
+
+    .mobile-menu a {
+      color: var(--nav-color);
+      text-decoration: none;
+      margin: 0.5rem 0;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--nav-hover);
+    }
+
+    @media (max-width: 768px) {
+      nav a, .theme-toggle {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-menu {
+        display: none !important;
+      }
+    }
+
+    .hero {
+      background: url('https://cdn.wallpapersafari.com/31/92/Ye6Rcd.jpg') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+    }
+
+    .games {
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      background-color: var(--section-bg);
+    }
+
+    .game {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .game:hover {
+      transform: scale(1.05);
+    }
+
+    .game img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .game .content {
+      padding: 1rem;
+    }
+
+    .game .content h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .trailer-section {
+      background-color: var(--section-bg);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .trailer-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .trailer-section iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .support-section, .news-section {
+      padding: 4rem 2rem;
+      background-color: var(--section-bg);
+    }
+
+    .support-section h2, .news-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .support-section p, .news-section p {
+      font-size: 1rem;
+      color: var(--text-color);
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    footer {
+      background: var(--header-bg);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: var(--footer-color);
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      margin: 0 0.5rem;
+      display: inline-block;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    .Owen:hover {
+      text-decoration: underline;
+      color: orangered;
+    }
+
+    .Owen {
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* Scroll animation */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script>
+    function playTrailer(videoUrl) {
+      document.getElementById('trailer-frame').src = videoUrl;
+    }
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
+  </script>
 </head>
 <body>
+  <header>
+    <h1>ShadowRock Studio</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#games">Games</a>
+      <a href="#support">Support</a>
+      <a href="#news">News</a>
+      <button class="theme-toggle" onclick="toggleTheme()">☀︎</button>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Home</a>
+      <a href="#games">Games</a>
+      <a href="#support">Support</a>
+      <a href="#news">News</a>
+    </div>
+  </header>
 
-<header id="header">
-  <h1 class="wwwwwww">Owen</h1>
-  <nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#about">من نحن</a>
-    <a href="#contact">اتصل بنا</a>
-    <a href="https://owen-arch.github.io/Owen1/">ترجمة-En</a>
-  </nav>
-</header>
-
-<main>
-  <section id="home" class="card">
-    <h2>مرحباً بكم في Owen</h2>
-    <p>
-      في Owen، نقوم بصنع تجارب ويب نظيفة وعصرية مصممة لجذب زوارك وجعلهم يعودون دائماً. سواء كنت تبني معرض أعمال شخصي أو موقعاً لشركتك، نجعلها تبدو احترافية بكل سهولة.
-    </p>
+  <section class="hero fade-in-up">
+    <h2>Welcome to the New Age of Gaming</h2>
   </section>
 
-  <section id="about" class="card">
-    <h2>من نحن</h2>
-    <p>
-      Owen هو فريق يقدم لك موقعًا إلكترونيًا رخيصًا لبدء عملك دون القلق من تكلفة الاستضافة أو هدر المال.
-    </p>
+  <section class="games fade-in-up" id="games">
+    <div class="game" onclick="playTrailer('https://www.youtube.com/embed/QkkoHAzjnUs')">
+      <img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg" alt="GTA V" />
+      <div class="content">
+        <h3>Urban Mayhem</h3>
+        <p>A massive open-world action game set in a city of crime, power, and rebellion.</p>
+      </div>
+    </div>
+    <div class="game" onclick="playTrailer('https://www.youtube.com/embed/eaW0tYpxyp0')">
+      <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" alt="Western Game" />
+      <div class="content">
+        <h3>Western Blood</h3>
+        <p>Experience the Wild West in a brutal, cinematic journey of honor and revenge.</p>
+      </div>
+    </div>
+    <div class="game" onclick="playTrailer('https://www.youtube.com/embed/HHcHYisZFLU')">
+      <img src="https://cdn.akamai.steamstatic.com/steam/apps/812140/header.jpg" alt="Futuristic Game" />
+      <div class="content">
+        <h3>Neon Reign</h3>
+        <p>Step into a dystopian cyberpunk world with deep narratives and high-tech combat.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="contact" class="card">
-    <h2>اتصل بنا</h2>
-    <p>
-      هل لديك أسئلة؟ هل تريد بناء أول موقع خاص بك؟ تواصل معنا في أي وقت على
-      <a href="https://discord.gg/mrarhB9v">discord</a>.
-    </p>
+  <section class="trailer-section fade-in-up">
+    <h2>Watch Game Trailer</h2>
+    <iframe id="trailer-frame" src="" allowfullscreen></iframe>
   </section>
-</main>
 
-<footer>
-  &copy; 2025 Owen. جميع الحقوق محفوظة.
-</footer>
+  <section class="support-section fade-in-up" id="support">
+    <h2>Support Center</h2>
+    <p>If you're experiencing issues with any of our games, need technical assistance, or want to report bugs, you're in the right place. Our support team is available 24/7 to assist you with installation issues, account problems, or gameplay concerns. Please reach out through our contact page, or check our FAQ for quick solutions.</p>
+  </section>
 
-<script>
-  const header = document.getElementById('header');
-  let lastScroll = 0;
+  <section class="news-section fade-in-up" id="news">
+    <h2>Latest News</h2>
+    <p>Stay updated with the latest announcements from ShadowRock Studio. From game updates, expansion packs, and trailers to exclusive events — this is your source for all our breaking news and development insights.</p>
+  </section>
 
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+  <footer class="fade-in-up">
+    &copy; 2025 ShadowRock Studio. All rights reserved.
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook"></a>
+      <a href="https://twitter.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter"></a>
+      <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+      <a href="https://youtube.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+    </div>
+    <br><br>Made by <a href="https://owen-arch.github.io/Owen-Arabic/" class="Owen">Owen</a>
+  </footer>
 
-    if (currentScroll <= 0) {
-      header.classList.remove('hide');
-    } else if (currentScroll > lastScroll) {
-      header.classList.add('hide');
-    } else {
-      header.classList.remove('hide');
-    }
+  <script>
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
 
-    lastScroll = currentScroll;
-  });
-</script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.classList.add('hide-header');
+      } else {
+        header.classList.remove('hide-header');
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
 
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.fade-in-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
+
 

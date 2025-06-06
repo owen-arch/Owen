@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Game Studio</title>
+  <title>El-kfyf El-raqmy</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -51,12 +51,12 @@
       background-color: var(--header-bg);
       padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #222;
       position: sticky;
       top: 0;
       z-index: 1000;
+      justify-content: flex-start;
     }
 
     header h1 {
@@ -67,6 +67,7 @@
     nav {
       display: flex;
       align-items: center;
+      margin-left: auto;
     }
 
     nav a {
@@ -78,6 +79,7 @@
 
     nav a:hover {
       color: var(--nav-hover);
+      border-bottom: 1px solid white;
     }
 
     .theme-toggle {
@@ -90,8 +92,13 @@
       cursor: pointer;
     }
 
-    .menu-toggle {
+    .menu-container {
       display: none;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .menu-toggle {
       font-size: 1.5rem;
       background: none;
       border: none;
@@ -124,12 +131,12 @@
     }
 
     @media (max-width: 768px) {
-      nav a, .theme-toggle {
+      nav {
         display: none;
       }
 
-      .menu-toggle {
-        display: block;
+      .menu-container {
+        display: flex;
       }
     }
 
@@ -265,7 +272,6 @@
       text-decoration: none;
     }
 
-    /* Scroll animation */
     .fade-in-up {
       opacity: 0;
       transform: translateY(40px);
@@ -277,62 +283,60 @@
       transform: translateY(0);
     }
   </style>
-  <script>
-    function playTrailer(videoUrl) {
-      document.getElementById('trailer-frame').src = videoUrl;
-    }
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
-    }
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-    }
-  </script>
 </head>
+
 <body>
   <header>
-    <h1>ShadowRock Studio</h1>
+    <h1>El-kfyf El-raqmy</h1>
     <nav>
       <a href="#">Home</a>
       <a href="#games">Games</a>
       <a href="#support">Support</a>
       <a href="#news">News</a>
-      <button class="theme-toggle" onclick="toggleTheme()">☀︎</button>
+      <a href="#news">Translate</a>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="theme-icon">☀️</span>
+      </button>
     </nav>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="menu-container">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="theme-icon-mobile">☀️</span>
+      </button>
+    </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="#">Home</a>
       <a href="#games">Games</a>
       <a href="#support">Support</a>
       <a href="#news">News</a>
+      <a href="#news">Translate</a>
     </div>
   </header>
 
   <section class="hero fade-in-up">
-    <h2>Welcome to the New Age of Gaming</h2>
+    <h2>Welcome to El-kfyf El-raqmy</h2>
   </section>
 
   <section class="games fade-in-up" id="games">
     <div class="game" onclick="playTrailer('https://www.youtube.com/embed/QkkoHAzjnUs')">
       <img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg" alt="GTA V" />
       <div class="content">
-        <h3>Urban Mayhem</h3>
-        <p>A massive open-world action game set in a city of crime, power, and rebellion.</p>
+        <h3>------</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.s.</p>
       </div>
     </div>
     <div class="game" onclick="playTrailer('https://www.youtube.com/embed/eaW0tYpxyp0')">
       <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" alt="Western Game" />
       <div class="content">
-        <h3>Western Blood</h3>
-        <p>Experience the Wild West in a brutal, cinematic journey of honor and revenge.</p>
+        <h3>-</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
       </div>
     </div>
     <div class="game" onclick="playTrailer('https://www.youtube.com/embed/HHcHYisZFLU')">
       <img src="https://cdn.akamai.steamstatic.com/steam/apps/812140/header.jpg" alt="Futuristic Game" />
       <div class="content">
-        <h3>Neon Reign</h3>
-        <p>Step into a dystopian cyberpunk world with deep narratives and high-tech combat.</p>
+        <h3>-</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
       </div>
     </div>
   </section>
@@ -344,30 +348,53 @@
 
   <section class="support-section fade-in-up" id="support">
     <h2>Support Center</h2>
-    <p>If you're experiencing issues with any of our games, need technical assistance, or want to report bugs, you're in the right place. Our support team is available 24/7 to assist you with installation issues, account problems, or gameplay concerns. Please reach out through our contact page, or check our FAQ for quick solutions.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
   </section>
 
   <section class="news-section fade-in-up" id="news">
     <h2>Latest News</h2>
-    <p>Stay updated with the latest announcements from ShadowRock Studio. From game updates, expansion packs, and trailers to exclusive events — this is your source for all our breaking news and development insights.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
   </section>
 
   <footer class="fade-in-up">
     &copy; 2025 ShadowRock Studio. All rights reserved.
     <div class="social-icons">
-      <a href="https://facebook.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook"></a>
-      <a href="https://twitter.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter"></a>
-      <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
-      <a href="https://youtube.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+      <a href="https://discord.gg/JbS6Es3j" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord"></a>
+      <a href="https://youtube.com/@alkfyf-alrqmy?si=K0Ywk6hiXAmlNNWg" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
     </div>
     <br><br>Made by <a href="https://owen-arch.github.io/Owen-Arabic/" class="Owen">Owen</a>
   </footer>
 
   <script>
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
+    function playTrailer(videoUrl) {
+      const trailer = document.getElementById('trailer-frame');
+      trailer.src = '';
+      setTimeout(() => {
+        trailer.src = videoUrl;
+      }, 50);
+    }
 
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      const iconMobile = document.getElementById('theme-icon-mobile');
+
+      body.classList.toggle('light-mode');
+      const isLight = body.classList.contains('light-mode');
+      const newIcon = isLight ? '🌙' : '☀️';
+
+      if (icon) icon.textContent = newIcon;
+      if (iconMobile) iconMobile.textContent = newIcon;
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    let lastScrollTop = 0;
     window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > lastScrollTop) {
         header.classList.add('hide-header');
@@ -378,6 +405,14 @@
     });
 
     document.addEventListener("DOMContentLoaded", () => {
+      const icon = document.getElementById('theme-icon');
+      const iconMobile = document.getElementById('theme-icon-mobile');
+      const isLight = document.body.classList.contains('light-mode');
+      const newIcon = isLight ? '🌙' : '☀️';
+
+      if (icon) icon.textContent = newIcon;
+      if (iconMobile) iconMobile.textContent = newIcon;
+
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -385,9 +420,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, {
-        threshold: 0.1
-      });
+      }, { threshold: 0.1 });
 
       document.querySelectorAll('.fade-in-up').forEach(el => {
         observer.observe(el);
@@ -396,5 +429,3 @@
   </script>
 </body>
 </html>
-
-
